@@ -19,3 +19,8 @@ kubectl apply -f ~/KubeDeploy/DashboardUI/Resources/pod-viewer-role.yaml
 kubectl create clusterrolebinding pod-viewer-sa \
   --clusterrole=pod-viewer \
   --serviceaccount=default:pod-viewer-sa
+  
+# Copy the token for the limited resources access service account into user_limited.txt
+kubectl get secret | grep pod-viewer >> user_limited.txt
+
+
