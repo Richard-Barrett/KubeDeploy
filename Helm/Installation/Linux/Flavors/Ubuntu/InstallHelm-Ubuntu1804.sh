@@ -10,3 +10,6 @@ kubectl apply -f ~/KubeDEploy/Helm/helm-rbac.yaml
 # helm init --service-account=tiller --tiller-image=gcr.io/kubernetes-helm/tiller:v2.14.1   --history-max 300
 # Initialize Helm: Deploy Tiller
 helm init --service-account=tiller --history-max 300
+
+# Check Tiller Deployment
+kubectl get deployment tiller-deploy -n kube-system
