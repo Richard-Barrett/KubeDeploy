@@ -36,14 +36,6 @@ sudo yum install -y kubelet kubeadm kubectl
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
 
-# Configure sysctl
-cat << EOF | sudo tee /etc/sysctl.d/k8s.conf
-net.bridge.bridge-nf-call-ip6tables = 1
-net.bridge.bridge-nf-call-iptables = 1
-EOF
-
-sudo sysctl --system
-
 # Configure Firewalld
 sudo firewall-cmd --permanent --add-port=6443/tcp
 sudo firewall-cmd --permanent --add-port=2379-2380/tcp
@@ -52,6 +44,14 @@ sudo firewall-cmd --permanent --add-port=10251/tcp
 sudo firewall-cmd --permanent --add-port=10252/tcp
 sudo firewall-cmd --permanent --add-port=10255/tcp
 sudo firewall-cmd –-reload
+
+# Configure sysctl
+cat << EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+
+sudo sysctl --system
 
 # Initialize the Kube Master (MASTER ONLY)
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
