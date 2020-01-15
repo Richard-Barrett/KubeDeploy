@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Turn off Swap
+sudo swapoff –a
+
+# If then Statement to look and see if Curl is Installed
+sudo apt-get install curl
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -25,3 +30,4 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 
+#EOF
