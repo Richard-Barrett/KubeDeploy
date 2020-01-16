@@ -24,7 +24,7 @@ echo "net.bridge.bridge-nf-call-iptables=1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
 # Load Missing Kernel Modules if any are found
-modprobe ip_vs_sh
-modprobe ip_vs
-modprobe ip_vs_rr
-modprobe ip_vs_wrr
+#modprobe ip_vs_sh
+#modprobe ip_vs
+#modprobe ip_vs_rr
+#modprobe ip_vs_wrr
