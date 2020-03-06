@@ -1,1 +1,1 @@
-## Practice Tests
+## Quizzes
