@@ -1,0 +1,44 @@
+1. Create a pod named pods-nginx with a volume=cache-control
+
+2. List out all of the persistent volumes and sort by storage capacity and save the output /opt/KU002109/volumes_output.txt using the kubectl native sort method
+
+3. Create a namespace named dev-environment
+
+4. List out all of the pods running in the dev namespace
+
+5. Create deployment named nginx-deployment with 3 replicas on the qa namespace 
+
+6. Find the top cpu utilization pod within the prod namespace and save the output as /opt/KUL002103/cpu_util_out.txt 
+
+7. Find all of the nodes running in the default namespace in READY and do not have the scheduled taint as foo
+
+8. Create a deployment named pods-dev234-env-ens01 and save the output as both a yaml file and json file as /opt/KUL001092/pods-dev234-env-ens01.yaml and /opt/KUL001092/pods-dev234-env-ens01.json
+
+9. Create a pod using the redis image as version:1.0.7.alpine
+
+10. Autoscale the deployment pods-dev234-env-ens02 to a replica of 3
+
+11. Create a deployment named redis-nginx using the redis+nginx image for the containers with a replicaset of 3
+
+12. Create a deployment named nginx-reale with image=nginx using version 1.0.10.alpine. Perform a rolling update to 1.0.12.alpine. Now roll it back to the previous version using the kubectl functionality. 
+
+13. Make a deployment caled front-end with a replicaset of 3 on the front-end namespace.
+
+14. Make a service called front-end, expose it on port 80 and make sure it connect to the containers in the pod front-end
+
+15. Create a snapshot of the etcd database and save it as /opt/KUL00009/snapshot_bkup
+
+16. Create a secret named super-secret with the username as alice and the password as supersecret. 
+
+17. Create a pod named secret-pods in the dev namespace with with the secret super-secret and mount it on /opt/secrets/. Create a pod named TOP-Secret that exports the secrets as super-top-secret. 
+
+18. In the w8s cluster their is a pod that is not running and is in error state...fix it. 
+
+19. Create an init continer that will create an empty file names as /workdir/links_real.txt. 
+
+20. You are given a task to perform a rolling update within the q8s cluster. 
+Your pod must be replicated 5 times and you must use the stable relese of nginx. 
+
+21. Create the mesh service and make the kubernetes dashboard service with command (COMMAND IS GIVEN) using ports 8083.
+
+22. You have a task to rollback the versions of certain pods within the z8s cluster in the prod namespace to nginx version 1.0.7.alpine
