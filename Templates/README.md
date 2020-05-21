@@ -1,6 +1,8 @@
 # Templates
 * [Kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
+Important directories within this directory include `.yaml` files containing template contexts that are good for understanding how to make specific `.yaml` files for cluster resources. 
+
 ## How to Enable Auto Completion
 * Bash
 ```
