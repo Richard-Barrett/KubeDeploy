@@ -19,3 +19,8 @@ kubectl describe pod <pod_name>
 ```
 kubectl delete pod <pod_name>
 ```
+
+## Edit Pods
+```
+kubectl edit pod <pod_name>
+```
