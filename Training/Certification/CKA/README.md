@@ -137,9 +137,19 @@ Alternatively
 kubectl run nginx-pod --image=nginx:alpine
 ```
 
-10. Use JSON PATH query to fetch node names and store them in /opt/outputs/node_names.txt
+# JSON Path Questions 
+
+1. Use JSON PATH query to fetch node names and store them in /opt/outputs/node_names.txt
 
 ANS:
 ```bash
 kubectl get nodes -o=jsonpath='{.items[*]metadata.name}' >> /opt/outputs/node_names.txt
+```
+
+2. Use JSON PATH query to retrieve the osImages of all the nodes and store it in a file /opt/outputs/nodes_os.txt
+- The osImages are under the nodeInfo section under status of each node.
+
+ANS:
+```bash
+kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}' > /opt/outputs/nodes_os.txt
 ```
