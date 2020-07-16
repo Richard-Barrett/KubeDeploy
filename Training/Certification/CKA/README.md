@@ -104,3 +104,15 @@ You should see output similar to this:
 master $ kubectl apply -f pv-analytics.yaml
 persistentvolume/pv-analytics created
 ```
+
+9. Deploy a pod named nginx-pod using the nginx:alpine image.
+
+ANS:
+```bash
+kubectl run --generator=run-pod/v1 nginx-pod --image=nginx:alpine
+```
+
+Alternatively
+```bash
+kubectl create pod nginx-pod --image=nginx:alpine
+```
