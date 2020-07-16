@@ -114,5 +114,5 @@ kubectl run --generator=run-pod/v1 nginx-pod --image=nginx:alpine
 
 Alternatively
 ```bash
-kubectl create pod nginx-pod --image=nginx:alpine
+kubectl run nginx-pod --image=nginx:alpine
 ```
