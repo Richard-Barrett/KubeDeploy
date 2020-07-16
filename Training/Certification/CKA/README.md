@@ -35,3 +35,11 @@ Run the command
 
 kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}' > /opt/outputs/nodes_os_x43kj56.txt
 ```
+
+5. Create a deployment named hr-web-app using the image kodekloud/webapp-color with 2 replicas
+
+ANS: 
+```bash
+kubectl create deployment hr-web-app --image=kodekloud/webapp-color
+kubectl scale deployment hr-web-app --replicas=2
+```
