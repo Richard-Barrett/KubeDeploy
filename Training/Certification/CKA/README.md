@@ -136,3 +136,10 @@ Alternatively
 ```bash
 kubectl run nginx-pod --image=nginx:alpine
 ```
+
+10. Use JSON PATH query to fetch node names and store them in /opt/outputs/node_names.txt
+
+ANS:
+```bash
+kubectl get nodes -o=jsonpath='{.items[*]metadata.name}' >> /opt/outputs/node_names.txt
+```
