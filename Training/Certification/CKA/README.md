@@ -137,7 +137,7 @@ Alternatively
 kubectl run nginx-pod --image=nginx:alpine
 ```
 
-# JSON Path Questions 
+## JSON Path Questions 
 
 1. Use JSON PATH query to fetch node names and store them in /opt/outputs/node_names.txt
 
@@ -152,4 +152,14 @@ kubectl get nodes -o=jsonpath='{.items[*]metadata.name}' >> /opt/outputs/node_na
 ANS:
 ```bash
 kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}' > /opt/outputs/nodes_os.txt
+```
+
+## Kube Config Questions
+
+1. A kube-config file is present at /root/my-kube-config. Get the user names from it and store it in a file /opt/outputs/users.txt
+- Use the command kubectl config view --kubeconfig=/root/my-kube-config to view the custom kube-config
+
+ANS:
+```bash 
+kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.users[*].name}" > /opt/outputs/users.txt
 ```
