@@ -106,23 +106,12 @@ kind: PersistentVolume
 metadata:
   name: pv-analytics
 spec:
+  accessModes:
+    - ReadWriteMany
   capacity:
     storage: 100Mi
-  volumeMode: Filesystem
-  accessModes:
-  - ReadWriteMany
-  persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
-  local:
+  hostPath:
     path: /pv/data-analytics
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - master
 ```
 
 The `kubectl apply -f` on the file:
