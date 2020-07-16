@@ -163,3 +163,19 @@ ANS:
 ```bash 
 kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.users[*].name}" > /opt/outputs/users.txt
 ```
+
+## Persistent Volume Questions
+1. A set of Persistent Volumes are available. Sort them based on their capacity and store the result in the file /opt/outputs/storage-capacity-sorted.txt
+
+ANS:
+```bash 
+kubectl get pv --sort-by=.spec.capacity.storage > /opt/outputs/storage-capacity-sorted.txt
+```
+
+1A. That was good, but we don't need all the extra details. Retrieve just the first 2 columns of output and store it in /opt/outputs/pv-and-capacity-sorted.txt
+- The columns should be named NAME and CAPACITY. Use the custom-columns option. And remember it should still be sorted as in the previous question.
+
+ANS:
+```bash
+kubectl get pv --sort-by=.spec.capacity.storage -o=custom-columns=NAME:.metadata.name,CAPACITY:.spec.capacity.storage > /opt/outputs/pv-and-capacity-sorted.txt
+```
