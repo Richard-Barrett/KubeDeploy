@@ -13,7 +13,7 @@ kubectl expose pod messaging --port=6379 --name messaging-service
 
 ANS:
 ```bash
-kubectl run --restart=Never --image=busybox static-busybox --dry-run -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml
+kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml
 ```
 
 3. Expose the hr-web-app as service hr-web-app-service application on port 30082 on the nodes on the cluster
