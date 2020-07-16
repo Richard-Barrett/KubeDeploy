@@ -18,14 +18,45 @@ kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o y
 
 3. Expose the hr-web-app as service hr-web-app-service application on port 30082 on the nodes on the cluster
 
-ANS:
+ANS: Run the command to generate a service definition file. Then edit the nodeport in it and create a service.
 ```bash 
-Run the command 
-
 kubectl expose deployment hr-web-app --type=NodePort --port=8080 --name=hr-web-app-service --dry-run -o yaml > hr-web-app-service.yaml 
-
-to generate a service definition file. Then edit the nodeport in it and create a service.
 ```
+
+Afterwards edit the file and add in the `nodePort: 30082` underneath the `targetPort`. 
+Your file should look like this:
+```bash
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: hr-web-app
+  name: hr-web-app-service
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30082
+  selector:
+    app: hr-web-app
+  type: NodePort
+status:
+  loadBalancer: {}
+```
+
+Afterwards, use the `kubectl apply -f` command on the `.yaml` file. 
+```bash
+kubectl apply -f hr-web-app-service.yaml
+```
+Your should see output like this:
+```bash
+master $ kubectl apply -f hr-web-app-service.yaml
+service/hr-web-app-service created
+```
+
+
 
 4. Use JSON PATH query to retrieve the osImages of all the nodes and store it in a file /opt/outputs/nodes_os_x43kj56.txt
 
