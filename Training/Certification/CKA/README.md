@@ -43,3 +43,64 @@ ANS:
 kubectl create deployment hr-web-app --image=kodekloud/webapp-color
 kubectl scale deployment hr-web-app --replicas=2
 ```
+
+6. Create a POD in the finance namespace named temp-bus with the image redis:alpine.
+
+ANS: 
+```bash
+kubectl run temp-bus --image=redis:alpine --namespace=finance
+```
+
+You can check it by running the following:
+```bash
+kubectl get pods --namespace=finance
+```
+
+7. A new application orange is deployed. There is something wrong with it. Identify and fix the issue.
+
+ANS:
+
+
+8. Create a Persistent Volume with the given specifications:
+- Volume Name: pv-analytics
+- Storage: 100Mi
+- Access modes: ReadWriteMany
+- Host Path: /pv/data-analytics
+
+ANS:
+Make a file called pv-analytics.yaml
+```bash
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-analytics
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local:
+    path: /pv/data-analytics
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - master
+```
+
+The `kubectl apply -f` on the file:
+```bash
+kubectl apply -f pv-analytics.yaml
+```
+
+You should see output similar to this:
+```bash
+master $ kubectl apply -f pv-analytics.yaml
+persistentvolume/pv-analytics created
+```
