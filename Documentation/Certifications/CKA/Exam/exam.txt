@@ -42,3 +42,9 @@ Your pod must be replicated 5 times and you must use the stable relese of nginx.
 21. Create the mesh service and make the kubernetes dashboard service with command (COMMAND IS GIVEN) using ports 8083.
 
 22. You have a task to rollback the versions of certain pods within the z8s cluster in the prod namespace to nginx version 1.0.7.alpine
+
+23. Join the following worker node <node-worker-01> to the master by using the kubeadm-tool. 
+
+24. The worker node in the cluster is not working and is not recognized by kubectl get nodes. You see kubectl installed, but kubectl commands are not working. You can directly ssh to the node from the master node using the following IP Address <IPV4_Address>. Go onto the node and troubleshoot kubectl and get the node back into the cluster. 
+
+25. The master node does not respond to kubectl commands, troubleshoot the issue and resolve the issue so that kubectl commands work. 
