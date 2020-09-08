@@ -119,25 +119,3 @@ NGINX+REDIS+MEMCACHED+CONSUL
 
 # Question 24:
 Create a deployment with given replicas 6 and store the it in a yaml file
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
