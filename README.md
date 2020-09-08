@@ -2,7 +2,7 @@
 ![Image](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Assets/Images/Logo/Kubedeploy.PNG)
 
 Important Links to Note:
-- (Articles)[https://github.com/Richard-Barrett/KubeDeploy/tree/master/Articles]
+- [Articles](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Articles)
 - (Assets)[https://github.com/Richard-Barrett/KubeDeploy/tree/master/Assets]
 - (Configuration)[https://github.com/Richard-Barrett/KubeDeploy/tree/master/Configuration]
 - (DashboardUI)[https://github.com/Richard-Barrett/KubeDeploy/tree/master/DashboardUI]
