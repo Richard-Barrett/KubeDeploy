@@ -1,7 +1,7 @@
 ## Welcome to KubeDeploy
 ![Image](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Assets/Images/Logo/Kubedeploy.PNG)
 
-Important Links to Note:
+# Important Links to Note:
 - [Articles](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Articles)
 - [Assets](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Assets)
 - [Configuration](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Configuration)
@@ -21,6 +21,7 @@ Important Links to Note:
 - [Tutorials](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Tutorials)
 - [Virtualization](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Virtualization)
 
+## Preparing for the CKA and CKAD Exams
 In [Training](https://github.com/Richard-Barrett/KubeDeploy/tree/master/Training) you will find some useful exam tips, questions, and even a cheatsheet you can use to help you prepare for the CKA and CKAD Exams. 
 
 
