@@ -7,4 +7,3 @@
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 3](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-3-2e7b44e89a3b)
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 4](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-4-17407899ef1a)
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 5](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-5-869d947412c0)
--[Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 6](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-6-8d2ffafcfc2b)
