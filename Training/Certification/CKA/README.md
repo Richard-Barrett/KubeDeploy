@@ -1,4 +1,9 @@
-# CKA Cheatsheet 
+# CKA 
+Preparing for the CKA is no joke. 
+If you want to prepare for the CKA you should really try to use the test_samples and the answer keys provided within the Repository. 
+If you find a better way to complete the tasks please do not hesitate to provide me with feedback or make a pull request. 
+
+## CKA Cheatsheet 
 
 ## Viewing, Finding Resources 
 ```
