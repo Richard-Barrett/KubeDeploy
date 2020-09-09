@@ -4,8 +4,8 @@ If you want to prepare for the CKA you should really try to use the test_samples
 If you find a better way to complete the tasks please do not hesitate to provide me with feedback or make a pull request. 
 
 Sample Tests:
-- [Test 1]()
-- [Test 2]()
+- [Test 1](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_1.txt)
+- [Test 2](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_2.txt)
 
 # CKA Cheatsheet 
 
