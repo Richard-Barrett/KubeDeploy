@@ -1,0 +1,503 @@
+# Question 1: Node Draining
+Set the first node within your cluster to be unavailable and re-schedule all the pods running on it.
+
+ANS:
+```
+kubectl drain node-name --ignore-daemonsets --force
+```
+
+# Question 2: Node Selectors
+Schedule a Pod as follows:
+· Name: kplabs-selector
+· Image:nginx
+· Launch pod on the node which has a disktype of ssd.
+· Make sure the Pod is in ready state.
+
+ANS:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kplabs-selector
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  nodeSelector:
+    disktype: ssd
+```
+
+# Question 3: Metric Server
+From the pods of the default namespace, identify the one which is taking the most CPU. Write the name of the pod to /opt/cpu.txt
+Note: For your practice environment, go ahead and install metric server first.
+
+ANS:
+```
+kubectl top pod --all-namespaces | sort --reverse --key 3 --numeric| head -3 > /tmp/cpu-hungry-pods.txt
+```
+
+# Question 4: Labels and Selectors
+Create a pod with the following specification:
+· Name: kplabs-jenkins
+· Image: jenkins
+· The pod should have a label of env=development and org=kplabs
+
+ANS:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+    name: kplabs-jenkins
+    labels:
+     env:development
+     org:kplabs
+spec:
+  containers:
+     - name: container-jenkins
+       image: jenkins  
+```
+
+# Question 5: Persistent Volumes
+Create a persistent volume with name app-config of capacity 1Gi and access mode ReadWriteOnce. The type of volume is hostPath and its location is /opt/pvsort.txt
+
+ANS:
+```
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: name app-config
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/opt/pvsort.txt"
+```
+
+# Question 6: PODS and Namespace
+Create a Pod as follows:
+· Name: jenkins
+· Using image: jenkins
+· In a new Kubernetes namespce named website-frontend
+
+ANS:
+```
+kubectl create namespace website-frontend
+kubectl run jenkins --image=jenkins -namespace=website-frontend
+```
+
+# Question 7: Labels and Selectors
+Create a file /opt/KUCC00302/kucc00302.txt that lists all pods in the front-end-service in the production namespace.
+
+ANS:
+```
+kubectl get pods -n production -l front-end-service >/opt/KUCC00302/kucc00302.txt
+```
+
+# Question 8: Deployments
+Create a deployment with the following specification:
+· Image: Nginx
+· Name: kplabs-nginx-deploy
+· Label: org=kplabs
+Replicas = 2
+
+ANS:
+```
+kubectl create deploy kplabs-nginx-deploy --image=nginx --dry-run=client -o yaml > deploy.yaml
+Edit the yaml file vi deploy.yaml
+Add the replicas as 2 and add the labels
+Execute kubectl create -f deploy.yaml
+```
+
+# Question 9: Scaling the Deployment
+Scale the nginx-app deployment to 6 pods.
+
+ANS:
+```
+kubectl scale deployment nginx-app --replicas=6
+```
+
+# Question 10: Secrets
+Create a Kubernetes Secret as follows:
+Name: super-secret
+Data of the secret:
+-- 1. password=alice
+-- 2. username=bob
+Create a Pod named pod-secrets-via-file using the nginx image which mounts a secret named super-secret at /secrets
+Create a second Pod named pod-secrets-via-env using the nginx image, which exports credential and username as SUPERSECRET and USER environment variables.
+
+ANS:
+```
+kubectl create secret generic super-secret --from-literal=username=bob --from-literal=password='S!B\*d$zDsb'
+echo -n 'hashvalue' | base64 --decode [ if you want to decode the secret value]
+```
+
+ANS YAML FILES:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-secrets-via-file
+spec:
+  containers:
+  - name: mypod
+    image: nginx
+    volumeMounts:
+     - name: secret
+       mountPath: "/etc/secret"
+       readOnly: true
+  volumes:
+  - name: secret
+    secret:
+      secretName: super-secret
+      items:
+      - key: username
+        path: mygroup/secrets
+```
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-secrets-via-env
+spec:
+  containers:
+  - name: mypod
+    image: nginx
+    envFrom:
+     - secretRef:
+          name: super-secret
+```
+
+# Question 11: Multi-Container Pod
+Create a pod named kucc4 with a single container for each of the following images running inside (there may be between 1 and 4 images specified): nginx + redis + memcached + consul
+
+ANS:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kucc4 
+spec:
+  containers:
+  - name: first-container
+    image: nginx
+  - name: second-container
+    image: redis
+  - name: third-container
+    image: memcached
+  - name: fourth-container
+    image: consul
+```
+
+# Question 12:
+Launch two servers based on Ubuntu 18 image. 
+Configure the Kubernetes cluster with kubeadm. 
+Set 1 server as Master Node and 2nd server as a worker node. 
+This question will be marked as complete once both the nodes's status is Ready.
+
+ANS:
+```
+Explanation
+Execute the below commands in both master and worker node:
+
+  sudo apt-get update
+  sudo apt-get install -y kubelet kubeadm kubectl
+  sudo apt-mark hold kubelet kubeadm kubectl
+
+Then,
+
+  kubeadm init --config=configfile.yaml --ignore-preflight-errors all
+
+
+
+Note:
+The OS in exam will be Ubuntu, the CRI will be isntalled. config file is given. loopback CNI is pre-configured. All you need to download the kubeadm, kubelet, kubectl bin on both nodes and install it with above command.
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config 
+
+You don't have to perform these steps, as the context is pre-configured on your jump host or from where you are working
+```
+
+# Question 13: Deployments
+Create a deployment spec file that will：
+· Launch 7 replicas of the redis image with the label:app_env_stage=dev
+· Deployment name: kua100201
+· Save a copy of this spec file to /opt/KUAL00201/deploy_spec.yaml
+· When you are done, clean up (delete) any new k8s API objects that you produced during this task
+
+Multiple Ways:
+
+ANS:
+YAML FILE
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: redis
+   labels:
+    app_env_stage: dev
+spec:
+   template:
+       metadata:
+        name: nginx
+        labels:
+          run: pod
+       spec:
+         containers:
+           - name: deploy-container
+             image: nginx
+   replicas: 7
+   selector:
+      matchLabels:
+         app_env_stage: dev
+```
+
+COMMANDS TP PLACE FILE & CLEANUP
+```
+kubectl get deploy redis -o yaml > /opt/KUAL00201/deploy_spec.yaml
+kubectl delete deploy redis
+```
+
+# Question 14: Volumes
+Create a pod as following details:
+· Name：non-persistent-redis
+· Container image: redis
+· Name-volume with name: cache-control
+· Mount path: /data/redis
+· It should launch in the pre-pod namespace and the volumes must not be persistent.
+
+ANS:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-persistent-redis
+  namespace: qa
+spec:
+  containers:
+  - name: redis
+    image: redis
+    volumeMounts:
+    - name: app-cache-mount
+      mountPath: /data/redis
+  volumes:
+  - name: app-cache
+    emptyDir: {}
+```
+
+# Question 15:Init Container
+Create a pod from the busybox image. 
+Add an init container in such a way that it should create a file in the location of /opt/myfile. 
+This file should be accessible from the nginx image as well. 
+The name of pod should be base-pod.
+
+ANS:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: base-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: nginx
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c', "until nslookup myservice.$(vi /opt/myfile. ).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+```
+
+# Question 16: Service
+Create and configure the service front-end-service so it‘s accessible through NodePort/ClusterIP and routes to the existing pod under the nginx-app deployment.
+
+ANS:
+```
+kubectl expose pod front-end --name=front-end-service --port=8080
+```
+
+# Question 17: Jobs
+Create a job that will write "Hello CKA" in a total of 20 times with 2 parallelisms.
+
+# Question 18: Sorting Operation
+Apply the following manifest file within your cluster:
+-- https://github.com/zealvora/myrepo/blob/master/demo-files/pv-sorting.yaml
+List all PVs sorted by the capacity and save the full kubectl output to /opt/my_volumes.txt
+Use kubectl‘s own functionally for sorting the output and do not manipulate it any further
+
+ANS:
+```
+kubectl get pv --sort-by=.spec.capacity.storage > /opt/my_volumes.txt
+```
+
+# Question 19: POD Security Context
+Create a pod named pod-security. 
+The pod should be launched from the busybox image and it should run with the command of ping 127.0.0.1 . 
+The primary process should run with the UID of 1005. 
+The pod should be launched in the namespace of security. 
+Check the logs of the POD and output the log to the file /tmp/pod-security.txt
+
+ANS:
+
+CREATE NAMESPACE SECURITY
+```
+kubectl create namespace security
+```
+
+CREATE POD FROM YAML FILE
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-security
+  namespace: security
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: [ "sh", "-c", "sleep 1h","ping 127.0.0.1" ]
+  securityContext:
+    runAsUser: 1005
+```
+
+GRAB LOGS
+```
+kubectl logs -f pod-security > /tmp/pod-security.txt
+```
+
+# Question 20: Deployment - Rolling Updates and Rollbacks
+Create a deployment as follows
+· Name：nginx-app
+· Namespace: production
+· Using container nginx with version 1.11.9-alpine
+· The deployment should contain 3 replicas
+· Next, deploy the app with new version 1.12.0-alpine by performing a rolling update and record that update.
+· Finally, rollback that update to the previous version 1.11.9-alpine
+
+ANS:
+```
+Explanation
+
+  kubectl create namespace production
+  kubectl create deploy nginx-app --image=nginx:1.11.9-alpine -namespace=production  --dry-run=client -o yaml > deploy.yaml
+
+Add the replicas to 3 and execute  - 
+  kubectl create -f deploy.yaml
+
+Now upgrade  - 
+  kubectl set image deployment/nginx-app nginx:1.11.9-alpine=1.12.0-alpine --record
+
+Again rollout -  
+  kubectl undo deployment/nginx-app --to-version=1
+```
+
+# Question 21: DNS
+Create a deployment as follows
+· Name: nginx-dns
+· Exposed via a service: nginx-dns
+· Ensure that the service & pod are accessible via their respective DNS records
+· The container(s) within any pod(s) running as a part of this deployment should use the nginx image
+Use the utility nslookup to look up the DNS records of the service & pod and write the output to /opt/service.dns and /opt/pod.dns respectively
+
+ANS:
+```
+Explanation
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: nginx-dns
+spec:
+   template:
+      metadata:
+        name: nginx
+        labels:
+          run: pod
+       spec:
+         containers:
+           - name: deploy-container
+             image: nginx
+   replicas: 3
+   selector:
+      matchLabels:
+         run: pod
+
+Then expose the deployment
+
+  kubectl expose deployment nginx-dns --type=NodePort --port:8080
+  kubectl exec -it servicecheck -- nslookup nginx-dns > /opt/nginx-dev-service-dns
+
+# Verify the dns entries logged in the file master
+
+$ cat /opt/nginx-dev-service-dns
+Server: 10.96.0.10 Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local
+Name: nginx-dns Address 1: 10.96.141.251 nginx-service.default.svc.cluster.local
+
+# List the pod nginx-dns-7db9fccd9b-7b5j7 and with the wide option to see the pod IP master
+$ kubectl get po nginx-7db9fccd9b-7b5j7 -o wide '
+NAME READY STATUS RESTARTS AGE IP NODE NOMINATED NODE READINESS GATES
+nginx-dns7db9fccd9b-7b5j7 1/1 Running 0 48m 10.32.0.2 node01 <none> <none>
+
+# Retrieve the POD’s DNS record master
+$kubectl  exec -it servicecheck -- nslookup 10-32-0-2.default.pod > /opt/nginx-pod-dns
+
+# View the content of the pod’s dns record file
+cat /opt/nginx-pod-dns
+Server: 10.96.0.10 Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local Name: 10-32-0-2.default.pod Address 1: 10.32.0.2 10-32-0-2.nginx-dev-service.default.svc.cluster.local
+```
+
+# Question 22: POD Logging
+Apply the following manifest to your K8s cluster:
+-- https://github.com/zealvora/myrepo/blob/master/demo-files/cka_logs.yaml
+Monitor the logs for all the containers which are part of the counter2 pod. 
+Extract log lines which have the number 02. Write them to /opt/kplabs-foobar
+
+ANS:
+```
+kubectl logs <pod_name> --all-containers | grep "02" > /opt/all-containers.log
+```
+
+# Question 23: Daemonset
+Ensure a single instance of Pod nginx is running on each node of the kubernetes cluster where nginx also represents the image name which has to be used. 
+Do not override any taints currently in place.
+
+ANS:
+```
+Explanation
+Use Daemon set to complete this task and use kplabs-daemonset as Daemonset's name.
+Create a yaml file as below
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+    name: daemon-set
+spec:
+   template:
+       metadata:
+        name: daemon-set-pod
+        labels:
+          run: pod
+       spec:
+         containers:
+           - name: daemon-set
+             image: nginx
+   selector:
+      matchLabels:
+         run: pod
+```
+
+# Question 24: Sorting Operation
+List all the PVs sorted by the name and store the output to /opt/pv-sort-name.txt
+
+ANS:
+```
+kubectl get pv --sort-by=.spec.capacity.storage > /opt/pv-sort-name.txt
+```
