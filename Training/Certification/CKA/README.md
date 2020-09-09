@@ -7,6 +7,12 @@ Sample Tests:
 - [Test 1](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_1.txt)
 - [Test 2](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_2.txt)
 
+
+Currently the test is set to 2 hours. 
+Try to accomplish all 24 questions within 1 hour and a half, that's 90 minutes. 
+Ensure you are attempting and finishing 1 problem every 3 minutes and 45 seconds. 
+This will give you 30 minutes to review any questions you may have bookmarked at the end of your exam. 
+
 # CKA Cheatsheet 
 
 ## Viewing, Finding Resources 
