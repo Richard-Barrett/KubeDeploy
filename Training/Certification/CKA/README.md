@@ -13,6 +13,14 @@ Try to accomplish all 24 questions within 1 hour and a half, that's 90 minutes.
 Ensure you are attempting and finishing 1 problem every 3 minutes and 45 seconds. 
 This will give you 30 minutes to review any questions you may have bookmarked at the end of your exam. 
 
+.... <!-- post content -->
+
+<div class="iframe_container">
+  <iframe width="560" height="315" src="https://app.lucidchart.com/lucidchart/b1b62a6e-1266-41dd-b48d-3c44252fb88f/view?page=fB.lPxz788ce#" frameborder="0" allowfullscreen></iframe>
+</div>
+
+.... <!-- post content -->
+
 # CKA Cheatsheet 
 
 ## Viewing, Finding Resources 
