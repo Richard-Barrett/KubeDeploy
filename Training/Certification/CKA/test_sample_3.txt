@@ -1,0 +1,19 @@
+# 1 Rolling update "www" containers of "frontend" deployment, updating the image
+
+# 2 Get the documentation for pod manifests
+
+# 3 Rolling restart of the "frontend" deployment
+
+# 4 Start a single instance of nginx
+
+# 5 List all pods in the current namespace, with more details
+
+# 6 List pods Sorted by Restart Count
+
+# 7 Show Merged kubeconfig settings
+
+# 8 List all pods in all namespaces
+
+# 9 List Events sorted by timestamp
+
+# 10 Get all running pods in the namespace
