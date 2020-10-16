@@ -1,0 +1,69 @@
+# 1 Rolling update "www" containers of "frontend" deployment, updating the image
+
+ANS:
+```
+kubectl set image deployment/frontend www=image:v2
+```
+
+# 2 Get the documentation for pod manifests
+
+ANS:
+```
+kubectl explain pods
+```
+
+# 3 Rolling restart of the "frontend" deployment
+
+ANS:
+```
+kubectl rollout restart deployment/frontend
+```
+
+# 4 Start a single instance of nginx
+
+ANS:
+```
+kubectl create deployment nginx --image=nginx
+```
+
+# 5 List all pods in the current namespace, with more details
+
+ANS:
+```
+kubectl get pods -o wide 
+```
+
+# 6 List pods Sorted by Restart Count
+
+ANS:
+```
+kubectl get pods --sort-by='.status.containerStatus[0].restartCount'
+```
+
+# 7 Show Merged kubeconfig settings
+
+ANS:
+```
+kubectl config view
+```
+
+# 8 List all pods in all namespaces
+
+ANS:
+```
+kubectl get pods --all-namespaces
+```
+
+# 9 List Events sorted by timestamp
+
+ANS:
+```
+kubectl get events --sort-by=.metadata.creationTimestamp
+```
+
+# 10 Get all running pods in the namespace
+
+ANS:
+```
+kubectl get pods --field-selector=status.phase=Running 
+```
