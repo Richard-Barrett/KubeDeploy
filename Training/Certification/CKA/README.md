@@ -6,6 +6,7 @@ If you find a better way to complete the tasks please do not hesitate to provide
 Sample Tests:
 - [Test 1](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_1.txt)
 - [Test 2](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_2.txt)
+- [Test 3](https://github.com/Richard-Barrett/KubeDeploy/blob/master/Training/Certification/CKA/test_sample_3.txt)
 
 
 Currently the test is set to 2 hours. 
