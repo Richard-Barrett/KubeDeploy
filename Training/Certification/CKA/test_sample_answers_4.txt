@@ -1,0 +1,171 @@
+# 1 Pause the rollout of the deployment
+
+ANS:
+```
+kubectl rollout pause deploy webapp
+```
+
+# 2 Create a namespace called 'development' and a pod with image nginx called nginx on this namespace
+
+ANS:
+```
+kubectl create namespace development
+kubectl run nginx --image=nginx --restart=Never -n development
+```
+
+# 3 Create a redis pod, and have it use a non-persistent storage
+(volume that lasts for the lifetime of the Pod)
+
+ANS:
+```
+vim redis-pod-vol.yaml 
+```
+
+# 4 Create a deployment of webapp with image nginx:1.17.1 with
+container port 80 and verify the image version
+
+ANS:
+```
+
+```
+
+# 5 Create a nginx pod with label env=test in engineering namespace
+
+ANS:
+```
+
+```
+
+# 6 Make the node schedulable by uncordon the node
+
+ANS:
+```
+
+```
+
+# 7 Clean the cluster by deleting deployment and hpa you just created
+
+ANS:
+```
+
+```
+
+# 8 expose deployment with “NodePort” service redis-service
+
+ANS:
+```
+
+```
+
+# 9 List all configmap and secrets in the cluster in all namespace and write it to a file /opt/configmapsecret
+
+ANS:
+```
+
+```
+
+# 10 Create a NetworkPolicy which denies all ingress traffic
+
+ANS:
+```
+
+```
+
+# 11 Get the DNS records for the service and pods for the deployment redis and the put the value in /tmp/dnsrecordpod and /tmp/dnsrecord-service
+
+ANS:
+```
+
+```
+# 12 Get list of all the nodes with labels
+
+ANS:
+```
+
+```
+
+# 13 Get the number of schedulable nodes and write to a file /opt/schedulable-nodes.txt
+
+ANS:
+```
+
+```
+
+# 14 Create a ETCD backup of kubernetes cluster
+Note :You don’t need to memorize command, refer -
+https://kubernetes.io/docs/tasks/administer-cluster/configureupgrade-etcd/ during exam
+
+ANS:
+```
+
+```
+
+# 15 Check the history of the specific revision of that deployment
+
+ANS:
+```
+
+```
+
+# 16 Update the deployment with the image version 1.16.1 and verify the image and check the rollout history
+
+ANS:
+```
+
+```
+
+# 17 Scale down the deployment to 1 replica
+
+ANS:
+```
+
+```
+
+# 18 Get list of all the pods showing name and namespace with a jsonpath expression.
+
+ANS:
+```
+
+```
+
+# 19 Check logs of each container that “busyboxpod-{1,2,3}”
+
+ANS:
+```
+
+```
+
+# 20 Create a PersistentVolumeClaim of at least 3Gi storage and access mode ReadWriteOnce and verify status is Bound
+
+ANS:
+```
+
+```
+
+# 21 Print all pod names and all image names and write them to a file named "/opt/pod-details.txt"
+
+ANS:
+```
+
+```
+
+# 22 Create a busybox pod and add “sleep 3600” command 
+
+ANS:
+```
+
+```
+
+# 23 Get the pods with label env=dev and output the labels
+
+ANS:
+```
+
+```
+
+# 24 Get the memory and CPU usage of all the pods and find out top 3 pods which have the highest usage and put them into the cpuusage.txt file
+
+ANS:
+```
+
+```
