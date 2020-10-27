@@ -9,7 +9,7 @@ chardet==3.0.4
 Click==7.0
 clint==0.5.1
 colorama==0.4.1
-cryptography==2.8
+cryptography==3.2
 dash==1.8.0
 dash-core-components==1.7.0
 dash-daq==0.3.1
