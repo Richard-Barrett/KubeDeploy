@@ -12,6 +12,7 @@
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 5](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-5-869d947412c0)
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 6](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-6-8d2ffafcfc2b)
 - [Service - Kubernetes Guide with Examples](https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html)
+- [Kubernetes Operators for Beginners](https://medium.com/@stoz_das/kubernetes-operators-for-beginners-8f53ead07097)
 
 
 ## Good Repositories for Studying and Training
