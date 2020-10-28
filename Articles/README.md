@@ -11,8 +11,11 @@
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 4](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-4-17407899ef1a)
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 5](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-5-869d947412c0)
 - [Certified Kubernetes Administrator (CKA) — Tips and Tricks — Part 6](https://medium.com/@imarunrk/certified-kubernetes-administrator-cka-tips-and-tricks-part-6-8d2ffafcfc2b)
+
+## Kubernetes Medium CKA Overall Article Guids
 - [Service - Kubernetes Guide with Examples](https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html)
 - [Kubernetes Operators for Beginners](https://medium.com/@stoz_das/kubernetes-operators-for-beginners-8f53ead07097)
+- [How to pass the New CKA exam released at September 2020](https://itnext.io/how-to-pass-the-new-cka-exam-released-at-september-2020-e0e014d67f78)
 
 
 ## Good Repositories for Studying and Training
@@ -21,3 +24,4 @@
 ## Kubernetes Medium CKAD Articles 
 - [How To Pass the Certified Kubernetes Application Developer (CKAD) Exam](https://medium.com/bb-tutorials-and-thoughts/how-to-pass-the-certified-kubernetes-application-developer-ckad-exam-503e9562d022)
 - [Practice Enough With These 150 Questions for the CKAD Exam](https://medium.com/bb-tutorials-and-thoughts/practice-enough-with-these-questions-for-the-ckad-exam-2f42d1228552)
+
