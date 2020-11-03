@@ -1,0 +1,10 @@
+1. Run a Kubernetes Pod with multiple containers nginx + redis + memcached
+
+2. Create a Clusterrole named sample-app1 in the app-team1 namespace, then create a service account names app-team1 and and bind it to the clusterrole sample-app1.
+
+3. Create a persisten volume names pv109 with Capacity 10Gi and using hostfilesystem and the host path set to /opt/pv109/pv109.db
+
+4. Create a Snapshot of etcd and store it in /var/lib/tmp/kucc1.db and then perform the restore using the following restore from the following /srv/tmp/kucc1_11012020.db
+
+5. Create a network policy that allows team members within the team1 namespace to create pods, volumes, and secrets, also the network policy should not allow access to pods on any pod within the team1 namespace on port 8080. 
+
