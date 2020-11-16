@@ -2,9 +2,31 @@
 
 2. Create a Clusterrole named sample-app1 in the app-team1 namespace, then create a service account names app-team1 and and bind it to the clusterrole sample-app1.
 
-3. Create a persisten volume names pv109 with Capacity 10Gi and using hostfilesystem and the host path set to /opt/pv109/pv109.db
+3. Create a persistent volume names pv109 with Capacity 10Gi and using hostfilesystem and the host path set to /opt/pv109/pv109.db
+
+4. Create a Persistent Volume Claim with 15Gi using the hostfilesystem and the host path set to /opt/pv108/pv12.db within the techno-stack namespace. 
 
 4. Create a Snapshot of etcd and store it in /var/lib/tmp/kucc1.db and then perform the restore using the following restore from the following /srv/tmp/kucc1_11012020.db
 
 5. Create a network policy that allows team members within the team1 namespace to create pods, volumes, and secrets, also the network policy should not allow access to pods on any pod within the team1 namespace on port 8080. 
+
+6. Perform a rolling upgrade on web-app1. 
+
+7. One of the nodes in the Cluster is in a notReady state, login and fix the issue. 
+
+8. Upgrade the Kubernetes control plane to version 1.19.0 on the control plane on master01, after the upgrade ensure that master01 is left in NoSchedule mode. 
+
+9. Scale the deployment nginx-ready to 3 replicas. 
+
+10. Find the pod that is using the most CPU and store the output /var/tmp/file-ready1
+
+11. An application is running, find the user that is having issues and redirect the output to /var/tmp/problematicusr.txt
+
+12. Redirect all of the output logs on the following application to /var/tmp/problemapp
+
+13. Run a pod using --image=nginx in the frontendnamespace, store the yaml file in /etc/kubernetes/pods/proxy.yaml
+
+14. Perform a backup of the etcd cluster and store the snapshot in /tmp/etcd/snapshot.db
+
+15. Restore the etcd database using the following snapshot from /var/tmp/snapshot.db
 
