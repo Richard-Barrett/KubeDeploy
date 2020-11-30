@@ -10,7 +10,7 @@
 
 5. Create a network policy that allows team members within the team1 namespace to create pods, volumes, and secrets, also the network policy should not allow access to pods on any pod within the team1 namespace on port 8080. 
 
-6. Perform a rolling upgrade on web-app1. 
+6. Perform a rolling upgrade on the deployment named web-app1. 
 
 7. One of the nodes in the Cluster is in a notReady state, login and fix the issue. 
 
@@ -30,3 +30,4 @@
 
 15. Restore the etcd database using the following snapshot from /var/tmp/snapshot.db
 
+16. A Pod is already running and it's yaml file located at /root/CKA/cont-411.yaml, configure a sidecar container named logs using a busybox image to run the following command 'sh -c curl https://127.0.0.1:56501/alerts' and output to the same mounted volume on /var/logs as defined by the preexisting pod without changing it's configuration. 
