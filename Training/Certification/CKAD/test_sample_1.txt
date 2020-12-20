@@ -1,0 +1,18 @@
+# CKAD Test Sample
+# Instructions Try to Complete all 19 questions in under 2 hours
+# Open a tab to kubernetes.io and attempt to complete the tasks on a running pre-existing Kubernetes Cluster
+
+# 1. A pod is running in the app1 namespace that is in an Error State fix it.
+
+# 2. Perform an Update on a existing deployment named webapp in the app1 namespace setting the CPU to 200m and the Memory to 150Mi, set the image iffcc01/nginx to version 1.13, set the maxSurge to 6 and maxUnavailable to 10%, then rollback to the previous version. 
+
+# 3. Update the following deplpoyment named front-end webapp in the app-xteam1 namespace to use the serviceAccount app1-team (The service account is already created for you).
+
+# 4. Define an environmental variable for the nginx-frontend deployment in the production namespace using NGINX_PORT on port 8080 and also expose the container port on 8080. 
+
+# 5. A pod in an error state is running on the staging-team1 namespace, find the pod consuming the most CPU and write out the name of that pod to /opt/CKAD/STGTM1POD.txt, then write out the event errors using -o wide within your command to the following /opt/CKAD/STGTM1POD_ERRORS.tx.
+
+# 6. Create a secret using using the following keypair key1/value2 and configure an nginx pod with image nginx:1.17.2 to use the newly created secret 
+
+# 7. Create a configmap using the following secrete key2/value3 and configure a deployment to use the newly created config map mounting /other/stuff as the mountpath. 
+
