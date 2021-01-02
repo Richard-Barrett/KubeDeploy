@@ -9,3 +9,6 @@ sites/site*/public/theme/
 textpattern/
 HISTORY.txt
 README.txt
+
+# Ignore Files Staged in KubeDeploy/Engineering-Labs
+KubeDeploy/Engineering-Labs
