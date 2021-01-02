@@ -6,9 +6,18 @@
 label tier:frontend and 2 replicas. Expose the deployment as a NodePort service with name front-end-service-app123, 
 port: 80 and NodePort: 30083
 
+Deployment my-webapp created?
+image: nginx
+Replicas = 2 ?
+service front-end-service created?
+service Type created correctly?
+Correct node Port used?
+
 # 2. Add a taint to the node node01 of the cluster.
 
 Use the following Specifications:
+key:app_type, value:alpha and effect:NoSchedule
+Create a pod called alpha, image:redis with toleration to node01
 
 # 3. Apply a label app_type=beta to node node02. 
 Create a new deployment called beta-apps with image:nginx and replicas:3. 
