@@ -28,7 +28,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.3
 jmespath==0.9.4
 keyring==21.1.0
-lxml==4.6.0
+lxml==4.6.2
 MarkupSafe==1.1.1
 mysql-client==0.0.1
 numpy==1.17.4
