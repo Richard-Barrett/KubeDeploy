@@ -25,7 +25,7 @@ gnupg==2.3.1
 googledrivedownloader==0.4
 idna==2.8
 itsdangerous==1.1.0
-Jinja2==2.10.3
+Jinja2==2.11.3
 jmespath==0.9.4
 keyring==21.1.0
 lxml==4.6.2
